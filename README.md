@@ -41,7 +41,9 @@ You'll also want to set up a volume for the database so your data persists betwe
 Next, you'll want to create a custom network you can reference by name to connect your database and Node app. Just like how your `volumes` key it outside of your services, you create a new key for networks. Name your custom network "pgnodeapp" and use the default bridge driver. It'll look something like this:
 
 ```yml
-networks: pgnodeapp: driver: bridge
+networks:
+    pgnodeapp:
+        driver: bridge
 ```
 
 Now you'll want your `db` service to connect to your custom network by adding a networks key referencing the named "pgnodeapp" network. You can also alias it as "postgres". Your `db` service should contain a networks key, like so:
